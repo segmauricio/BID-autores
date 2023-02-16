@@ -2,10 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "../layouts/Layout";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
-import PersonaDetalle from "../pages/personas/PersonaDetalle";
-import PersonaEditar from "../pages/personas/PersonaEditar";
-import Personas from "../pages/personas/Personas";
-import PersonasAdd from "../pages/personas/PersonasAdd";
+import AutorEditar from "../pages/autores/AutorEditar";
+import Autores from "../pages/autores/Autores";
+import AutoresAdd from "../pages/autores/AutoresAdd";
 
 export default createBrowserRouter([
     {
@@ -18,20 +17,16 @@ export default createBrowserRouter([
                 element: <Home />
             },
             {
-                path:'personas',
-                element: <Personas />
+                path:'autores',
+                element: <Autores />
             },
             {
-                path:'personas/agregar',
-                element: <PersonasAdd />
+                path:'autores/agregar',
+                element: <AutoresAdd />
             },
             {
-                path:'personas/:id',
-                element: <PersonaDetalle />
-            },
-            {
-                path:'personas/:id/editar',
-                element: <PersonaEditar />
+                path:'autores/:id/editar',
+                element: <AutorEditar />
             }
         ]
     }

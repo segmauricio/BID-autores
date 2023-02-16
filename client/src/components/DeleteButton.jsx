@@ -2,13 +2,13 @@ import React from 'react'
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
-const DeleteButton = ({id_persona, successCallback}) => {
+const DeleteButton = ({id_autor, successCallback}) => {
 
-    const eliminarPersona = async (personaID) => {
+    const eliminarAutor = async (autorID) => {
 
         try {
-            await axios.delete(`${process.env.REACT_APP_API_URL}/people/${personaID}`);
-            successCallback(personaID);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/autores/${autorID}`);
+            successCallback(autorID);
         }
         catch (error) {
             console.log(error);
@@ -20,7 +20,7 @@ const DeleteButton = ({id_persona, successCallback}) => {
         }
     }
 
-    const confirmarEliminar = (personaID) => {
+    const confirmarEliminar = (autorID) => {
         Swal.fire({
             title: 'Estas seguro de eliminar?',
             text: "No podrás arrepentirte!!",
@@ -31,13 +31,13 @@ const DeleteButton = ({id_persona, successCallback}) => {
             confirmButtonText: 'SI, eliminalo ahora!'
         }).then((result) => {
             if (result.isConfirmed) {
-                eliminarPersona(personaID)
+                eliminarAutor(autorID)
             }
         })
     }
 
     return (
-        <button className="btn btn-danger ms-2" onClick={() => { confirmarEliminar(id_persona) }}>Eliminar</button>
+        <button className="btn btn-danger ms-2" onClick={() => { confirmarEliminar(id_autor) }}>Eliminar</button>
     )
 }
 
