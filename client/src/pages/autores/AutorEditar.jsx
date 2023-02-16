@@ -10,7 +10,7 @@ const AutorEditar = () => {
     const initialValues = {
         nombre: '',
         cita: ''
-      }
+    }
 
     const { id } = useParams()
     const [autor, setAutor] = useState(initialValues)
@@ -44,7 +44,7 @@ const AutorEditar = () => {
                 text: `Error: ${error?.response?.data?.message || error.message}`,
             })
         }
-      }
+    }
 
     return (
         <>

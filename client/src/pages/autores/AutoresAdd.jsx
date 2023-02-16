@@ -21,7 +21,6 @@ const AutoresAdd = () => {
                 title: 'ÉXITO',
                 text: `Se ha agregado a ${respuesta.data.nombre} a la biblioteca`,
             });
-
             actions.resetForm(initialValues);
             navigate('/autores');
         }
