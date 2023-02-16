@@ -17,6 +17,7 @@ export default createBrowserRouter([
                 element: <Home />
             },
             {
+                index: true,
                 path:'autores',
                 element: <Autores />
             },

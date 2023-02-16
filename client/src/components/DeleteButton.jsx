@@ -22,13 +22,13 @@ const DeleteButton = ({id_autor, successCallback}) => {
 
     const confirmarEliminar = (autorID) => {
         Swal.fire({
-            title: 'Estas seguro de eliminar?',
-            text: "No podrás arrepentirte!!",
+            title: '¿Estás seguro?',
+            text: "Una vez eliminado, no podrás recuperar la información",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'SI, eliminalo ahora!'
+            confirmButtonText: 'Sí, estoy seguro.'
         }).then((result) => {
             if (result.isConfirmed) {
                 eliminarAutor(autorID)
