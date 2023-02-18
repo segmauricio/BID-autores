@@ -18,34 +18,30 @@ const Autores = () => {
     setAutores(autores.filter((autor) => autor._id !== autorID));
   }
 
-  const sortAlphabetically = () => {
-   
-  }
-
+  const sortedAutoresAlphabetically = autores.sort((a, z) => a.nombre.localeCompare(z.nombre))
 
   return (
     <>
     <Link to="/autores/agregar" className="btn btn-primary mb-3">Add an author</Link>
     <h4 style={{color: "rebeccapurple"}} className="mb-3">We have quotes by: </h4>
       <table className="table table-striped table-hover table-bordered col-md-3 col-sm-1 col-lg-4">
-        <thead>
+        <thead >
           <tr>
-            <th style={{textAlign:"center"}}>Author</th>
-            <th style={{textAlign:"center"}}>Quote</th>
-            <th style={{textAlign:"center"}}>Actions available</th>
+            <th className="text-center">Author</th>
+            <th className="text-center">Quote</th>
+            <th className="text-center">Actions available</th>
           </tr>
         </thead>
         <tbody>
-          { autores.map( (autor, index) => <tr key={index} >
-            <td style={{color: "rebeccapurple"}}>{ autor.nombre }</td>
-            <td>{ autor.cita }</td>
-            <td style={{textAlign:"center"}}> 
+          { sortedAutoresAlphabetically.map( (autor, index) => <tr key={index} >
+            <td style={{color: "rebeccapurple"}} className="col-3 px-4">{ autor.nombre }</td>
+            <td className="px-4">{ autor.cita }</td>
+            <td className="col-2 text-center"> 
               <Link className="btn btn-success ms-2" to={`/autores/${autor._id}/editar`}>Editar</Link>   
               <DeleteButton id_autor={autor._id} successCallback={quitarAutor} />
             </td>
           </tr> ) }
         </tbody>
-        <button className="btn btn-info mt-3" onClick={sortAlphabetically}>Order authors alphabetically</button>
       </table>
     </>
   )
